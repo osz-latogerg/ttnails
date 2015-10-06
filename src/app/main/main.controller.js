@@ -28,6 +28,22 @@
       cssClass: 'slide-contact'
     }];
 
+    vm.nails = [
+        'http://lorempixel.com/output/fashion-q-c-640-480-7.jpg',
+        'http://lorempixel.com/output/fashion-q-c-640-480-5.jpg',
+        'http://lorempixel.com/output/fashion-h-c-480-640-7.jpg',
+        'http://lorempixel.com/output/fashion-q-c-640-480-1.jpg',
+        'http://lorempixel.com/output/fashion-h-c-480-640-5.jpg',
+        'http://lorempixel.com/output/fashion-q-c-640-480-10.jpg',
+        'http://lorempixel.com/output/fashion-q-c-640-480-6.jpg',
+        'http://lorempixel.com/output/fashion-q-c-640-480-4.jpg',
+        'http://lorempixel.com/output/fashion-q-c-640-480-3.jpg',
+        'http://lorempixel.com/output/fashion-h-c-480-640-1.jpg',
+        'http://lorempixel.com/output/fashion-h-c-480-640-2.jpg'
+    ];
+
+
+
     function goToSlide(index) {
         for (var i = 0; i < vm.slides.length; i++) {
             var slide = vm.slides[i];
@@ -37,6 +53,7 @@
                 slide.active = false;
             }
         }
+        angular.element(window).trigger('resize');
     }
 
     vm.goToSlide = goToSlide;
