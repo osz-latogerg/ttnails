@@ -1,17 +1,23 @@
 <div class="body-top">
+  <nav class="main-nav">
+    <a href="" ng-click="main.goToSlide(0)">Nyitólap</a>
+    <span class="menu-separator"> &bull; </span>
+    <a href="" ng-click="main.goToSlide(1)">Körmök</a>
+    <span class="menu-separator"> &bull; </span>
+    <a href="" ng-click="main.goToSlide(2)">Sminkek</a>
+    <span class="menu-separator"> &bull; </span>
+    <a href="" ng-click="main.goToSlide(3)">Árak</a>
+    <span class="menu-separator"> &bull; </span>
+    <a href="http://www.turbucztimea.hu/blog" target="_blank">Blog</a>
+    <span class="menu-separator"> &bull; </span>
+    <a href="" ng-click="main.goToSlide(4)">Kapcsolat</a>
+  </nav>
 </div>
 
 <div class="body-bottom">
   <carousel class="main-carousel" interval="main.myInterval" no-wrap="main.noWrapSlides">
-    <slide class="slide-main" active="main.slides.main">
-      <div class="logo-spacer">
-        <img class="tt-logo" src="assets/images/logottblackkicsi.png" alt="" />
-      </div>
-    </slide>
-    <slide class="slide-nails" active="main.slides.nails">
-    </slide>
-    <slide class="slide-makeup" active="main.slides.makeup">
-        Sminkek
+    <slide ng-repeat="slide in main.slides" class="{{slide.cssClass}}" active="slide.active">
+      <div ng-include src="slide.template"></div>
     </slide>
   </carousel>
 </div>

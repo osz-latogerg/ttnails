@@ -21,26 +21,42 @@ body {
 
     .body-top,
     .body-bottom {
-      height: 50%;
       width: 100%;
       overflow: hidden;
+      position: relative;
     }
 
     .body-top {
+      height: 35vh;
+      .main-nav {
+        position: absolute;
+        bottom: 50%;
+        right: 150px;
+        z-index: 99;
 
+        a {
+          font-family: 'Oleo Script', cursive;
+          font-size: 24px;
+        }
+
+        .menu-separator {
+          font-size: 22px;
+        }
+      }
     }
 
     .body-bottom {
-
+      height: 65vh;
       text-align: center;
-      position: relative;
       overflow: visible;
 
       .main-carousel {
         height: 100%;
+
         .carousel-control {
-            display: none;
+          display: none;
         }
+
         .carousel-indicators {
           top: -95%!important;
           bottom: initial!important;
@@ -63,11 +79,8 @@ body {
           }
 
           .slide-main {
-              background: url("../assets/images/mainbg.jpg");
-              background-size: cover;
-          }
-          .slide-nails {
-              background-color: teal;
+            background: url("../assets/images/mainbg.jpg");
+            background-size: cover;
           }
         }
       }
@@ -75,7 +88,7 @@ body {
       .logo-spacer {
         width: 100%;
         height: 200px;
-        top: -126px;
+        top: -125px;
         position: absolute;
 
         img.tt-logo {
