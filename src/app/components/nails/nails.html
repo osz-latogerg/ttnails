@@ -1,5 +1,9 @@
-<flex-slider flex-slide="s in main.nails"  animation="slide" animation-loop="true" item-width="400">
-    <li>
-        <img ng-src="{{s}}">
-    </li>
-</flex-slider>
+<div ng-if="main.slides[1].active" class="nails-container">
+  <slick dots="true" infinite="true" speed="100" slides-to-show="2" autoplay="true" autoplay-speed="2000" center-mode="true" variable-width="true">
+    <div ng-repeat="nail in main.nails">
+      <a ng-click="main.openLightboxModal('nals', $index)">
+        <img ng-src="{{nail.url}}">
+      </a>
+    </div>
+  </slick>
+</div>

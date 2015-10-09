@@ -1,8 +1,13 @@
-.price-positioner{
-    position: absolute;
-    top: -35vh;
-    height: 100vh;
-    img {
-        height: 100%;
+.price-positioner {
+  position: absolute;
+  top: -35vh;
+  height: 100vh;
+
+  img {
+    vertical-align: bottom;
+    &.tt-prices {
+      height: 100%;
+      widows: auto;
     }
+  }
 }

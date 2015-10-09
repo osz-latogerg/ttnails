@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, toastr) {
+  function MainController($timeout, toastr, Lightbox) {
     var vm = this;
 
     vm.myInterval = 0;
@@ -28,34 +28,61 @@
       cssClass: 'slide-contact'
     }];
 
-    vm.nails = [
-        'http://lorempixel.com/output/fashion-q-c-640-480-7.jpg',
-        'http://lorempixel.com/output/fashion-q-c-640-480-5.jpg',
-        'http://lorempixel.com/output/fashion-h-c-480-640-7.jpg',
-        'http://lorempixel.com/output/fashion-q-c-640-480-1.jpg',
-        'http://lorempixel.com/output/fashion-h-c-480-640-5.jpg',
-        'http://lorempixel.com/output/fashion-q-c-640-480-10.jpg',
-        'http://lorempixel.com/output/fashion-q-c-640-480-6.jpg',
-        'http://lorempixel.com/output/fashion-q-c-640-480-4.jpg',
-        'http://lorempixel.com/output/fashion-q-c-640-480-3.jpg',
-        'http://lorempixel.com/output/fashion-h-c-480-640-1.jpg',
-        'http://lorempixel.com/output/fashion-h-c-480-640-2.jpg'
-    ];
+    vm.makeups = [{
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-7.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-5.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-h-c-480-640-7.jpg'
+    },{
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-7.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-5.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-h-c-480-640-7.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-1.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-h-c-480-640-5.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-10.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-6.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-4.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-3.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-h-c-480-640-1.jpg'
+    },{
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-7.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-q-c-640-480-5.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-h-c-480-640-7.jpg'
+    }, {
+      url: 'http://lorempixel.com/output/fashion-h-c-480-640-2.jpg'
+    }];
 
+    vm.nails = vm.makeups;
 
+    function openLightboxModal(data, index) {
+      Lightbox.openModal(vm[data], index);
+    }
 
     function goToSlide(index) {
-        for (var i = 0; i < vm.slides.length; i++) {
-            var slide = vm.slides[i];
-            if (index === i) {
-                slide.active = true;
-            } else {
-                slide.active = false;
-            }
+      for (var i = 0; i < vm.slides.length; i++) {
+        var slide = vm.slides[i];
+        if (index === i) {
+          slide.active = true;
+        } else {
+          slide.active = false;
         }
-        angular.element(window).trigger('resize');
+      }
+      angular.element(window).trigger('resize');
     }
 
     vm.goToSlide = goToSlide;
+    vm.openLightboxModal = openLightboxModal;
   }
 })();
