@@ -8,8 +8,10 @@
  */
 // bower:scss
 // endbower
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
 body {
+  font-family: 'Open Sans Condensed', sans-serif;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -18,6 +20,10 @@ body {
   .view-wrapper {
     height: 100%;
     width: 100%;
+
+    .phone-separator {
+      display: none;
+    }
 
     .body-top,
     .body-bottom {
@@ -28,6 +34,12 @@ body {
 
     .body-top {
       height: 35vh;
+
+      .fb-like {
+        top: 15px;
+        left: 15px;
+      }
+
       .main-nav {
         position: absolute;
         bottom: 50%;
@@ -35,14 +47,6 @@ body {
         padding-right: 100px;
         padding-left: 100px;
         z-index: 99;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+0,0.65+100 */
-        background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.2))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%); /* IE10+ */
-        background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 */
 
         a {
           font-size: 24px;
@@ -68,8 +72,7 @@ body {
         }
 
         .carousel-indicators {
-          top: -35vh;
-          bottom: initial;
+          display: none;
 
           .active {
             background-color: black;
@@ -98,11 +101,124 @@ body {
       .logo-spacer {
         width: 100%;
         height: 200px;
-        top: -125px;
+        top: -110px;
         position: absolute;
 
         img.tt-logo {
-          width: 40%;
+          width: 35%;
+        }
+      }
+
+      .tt-copyright {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+  }
+}
+
+.lightbox-modal {
+  .modal-content {
+    border-radius: 0;
+
+    .lightbox-nav {
+      margin-bottom: 5px;
+
+      .btn {
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-device-width : 760px) {
+
+  // and (orientation : portrait) {
+  body {
+    .view-wrapper {
+      .phone-separator {
+        display: block;
+        width: 100%;
+      }
+
+      .body-top,
+      .body-bottom {
+        overflow: auto;
+        position: relative;
+      }
+
+      .body-top {
+        height: 15vh;
+        display: inline-block;
+        min-height: 70px;
+
+        .fb-like {
+          display: none;
+        }
+
+        .main-nav {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding-right: 15px;
+          padding-left: 15px;
+          z-index: 99;
+
+          a {
+
+            // font-size: 24px;
+            // color: black;
+          }
+
+          .menu-separator {
+
+            // font-size: 22px;
+          }
+        }
+      }
+
+      .body-bottom {
+        height: 85vh;
+
+        .main-carousel {
+          height: 100%;
+
+          .carousel-inner {
+            overflow: visible;
+            height: 100%;
+
+            .item {
+              height: 100%;
+            }
+
+            .slide-main {
+              @media only screen and (orientation : portrait) {
+                background-image: url("../assets/images/phonebg.jpg");
+              }
+
+              @media only screen and (orientation : landscape) {
+                background-image: url("../assets/images/phonebglandscape.jpg");
+              }
+            }
+          }
+        }
+
+        .logo-spacer {
+          width: 100%;
+          height: auto;
+          bottom: 25px;
+          top: auto;
+          position: absolute;
+          min-height: 50px;
+
+          img.tt-logo {
+            width: 100%;
+          }
+        }
+
+        .tt-copyright {
+          display: none;
         }
       }
     }

@@ -5,7 +5,7 @@
     .module('ttnails', [
       'ngAnimate',
       'ngCookies',
-      'ngTouch',
+    //   'ngTouch',
       'ngSanitize',
       'ngResource',
       'ui.router',

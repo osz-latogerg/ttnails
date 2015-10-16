@@ -1,0 +1,52 @@
+.contact-spacer {
+  width: 100%;
+  top: 0;
+  position: absolute;
+
+  .contact-data {
+    text-align: left;
+    font-size: 24px;
+    padding: 0 30px;
+  }
+
+  .fb-page {
+    img {
+      height: 300px;
+    }
+  }
+}
+
+@media only screen and (max-device-width : 760px) {
+  .contact-spacer {
+    .contact-data {
+      text-align: left;
+      font-size: 24px;
+      padding: 0 10px;
+    }
+
+    .contact-block {
+        width: 100%;
+    }
+
+    .fb-page {
+      img {
+        height: 300px;
+      }
+    }
+  }
+
+  .google-maps {
+    position: relative;
+    padding-bottom: 75%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}

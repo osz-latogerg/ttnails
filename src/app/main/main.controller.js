@@ -1,4 +1,10 @@
-(function() {
+/**
+TODO:
+ - get carousel data from WP API
+ - create service for the API calls
+ - separate to standalone controllers if this one gets significantly bigger
+*/
+(function () {
   'use strict';
 
   angular
@@ -15,6 +21,9 @@
       template: 'app/components/home/home.html',
       cssClass: 'slide-main'
     }, {
+      template: 'app/components/about/about.html',
+      cssClass: 'slide-about'
+    }, {
       template: 'app/components/nails/nails.html',
       cssClass: 'slide-nails'
     }, {
@@ -26,45 +35,31 @@
     }, {
       template: 'app/components/contact/contact.html',
       cssClass: 'slide-contact'
+    }, {
+      template: 'app/components/blog/blog.html',
+      cssClass: 'slide-blog'
     }];
 
-    vm.makeups = [{
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-7.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-5.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-h-c-480-640-7.jpg'
-    },{
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-7.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-5.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-h-c-480-640-7.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-1.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-h-c-480-640-5.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-10.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-6.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-4.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-3.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-h-c-480-640-1.jpg'
-    },{
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-7.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-q-c-640-480-5.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-h-c-480-640-7.jpg'
-    }, {
-      url: 'http://lorempixel.com/output/fashion-h-c-480-640-2.jpg'
-    }];
 
-    vm.nails = vm.makeups;
+    vm.prices = [{
+          url: 'assets/images/prices.jpg',
+    }];
+    vm.nails = [];
+    vm.makeups = [];
+
+    for (var i = 0; i <= 15; i++) {
+        vm.nails.push({
+              url: 'assets/images/korom/' + (i+1) + '.jpg',
+              thumburl: 'assets/images/korom/thumbs/' + (i+1) + 'i.jpg'
+        });
+    }
+
+    for (var j = 0; j <= 38; j++) {
+        vm.makeups.push({
+              url: 'assets/images/smink/' + j + '.jpg',
+              thumburl: 'assets/images/smink/thumbs/' + j + 'i.jpg'
+        });
+    }
 
     function openLightboxModal(data, index) {
       Lightbox.openModal(vm[data], index);
@@ -79,9 +74,9 @@
           slide.active = false;
         }
       }
-      angular.element(window).trigger('resize');
     }
 
+    //export functions
     vm.goToSlide = goToSlide;
     vm.openLightboxModal = openLightboxModal;
   }

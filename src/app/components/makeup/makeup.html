@@ -1,8 +1,9 @@
-<div ng-if="main.slides[2].active" class="makeup-container">
-  <slick dots="true" infinite="true" speed="100" slides-to-show="2" autoplay="true" autoplay-speed="2000" center-mode="true" variable-width="true">
+<div ng-if="main.slides[3].active" class="makeup-container">
+<hr class="phone-separator">
+  <slick dots="true" infinite="true" speed="500" slides-to-show="6" autoplay="true" autoplay-speed="1000" center-mode="false" variable-width="true">
     <div ng-repeat="makeup in main.makeups">
       <a ng-click="main.openLightboxModal('makeups', $index)">
-        <img ng-src="{{makeup.url}}">
+        <img ng-src="{{makeup.thumburl}}" oncontextmenu="return false;">
       </a>
     </div>
   </slick>

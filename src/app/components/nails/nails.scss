@@ -33,3 +33,23 @@
 .slick-next {
   right: 70px;
 }
+
+@media only screen and (max-device-width : 760px) {
+    // .slick-slide {
+    //
+    //   img {
+    //     height: auto;
+    //     width: 100%;
+    //   }
+    // }
+
+    .slick-prev,
+    .slick-next {
+      display: none!important;
+    }
+
+.slick-dots {
+    display: none!important;
+
+}
+}

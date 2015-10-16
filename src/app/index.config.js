@@ -6,9 +6,10 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastr) {
+  function config($logProvider, toastr, LightboxProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+    LightboxProvider.fullScreenMode = true;
 
     // Set options third-party lib
     toastr.options.timeOut = 3000;
